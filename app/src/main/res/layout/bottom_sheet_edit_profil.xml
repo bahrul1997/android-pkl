@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="#98B4D3">
+
+    <!-- Handle Bar -->
+    <View
+        android:layout_width="40dp"
+        android:layout_height="4dp"
+        android:layout_gravity="center_horizontal"
+        android:background="#DDD"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Judul -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="👤 Info Profil"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="#1a1a1a" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Data profil Anda"
+        android:textSize="12sp"
+        android:textColor="#666"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="20dp" />
+
+    <!-- Username (READONLY) -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Username / NISN"
+        android:textSize="13sp"
+        android:textStyle="bold"
+        android:textColor="#1a1a1a"
+        android:layout_marginBottom="8dp" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_marginBottom="16dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etUsername"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:focusable="false"
+            android:clickable="false"
+            android:cursorVisible="false"
+            android:enabled="false" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Nama Lengkap (READONLY) -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nama Lengkap"
+        android:textSize="13sp"
+        android:textStyle="bold"
+        android:textColor="#1a1a1a"
+        android:layout_marginBottom="8dp" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_marginBottom="16dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etNama"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:focusable="false"
+            android:clickable="false"
+            android:cursorVisible="false"
+            android:enabled="false" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- No HP (READONLY juga) -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="No HP"
+        android:textSize="13sp"
+        android:textStyle="bold"
+        android:textColor="#1a1a1a"
+        android:layout_marginBottom="8dp" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_marginBottom="20dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etNoHp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="phone"
+            android:focusable="false"
+            android:clickable="false"
+            android:cursorVisible="false"
+            android:enabled="false" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Info -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ℹ️ Semua data hanya bisa diubah oleh admin. Hubungi admin jika ingin mengubah data."
+        android:textSize="11sp"
+        android:textColor="#666"
+        android:padding="10dp"
+        android:background="#F5F5F5"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Tombol Tutup -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnSimpanProfil"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Tutup"
+        android:textColor="@color/white"
+        android:textSize="9sp"
+        android:paddingVertical="10dp"
+        android:backgroundTint="#1565C0"
+        app:cornerRadius="10dp" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="8dp"
+        android:visibility="gone" />
+
+</LinearLayout>

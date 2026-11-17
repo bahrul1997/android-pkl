@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:maxHeight="600dp"
+    android:fillViewport="true"
+    android:background="#98B4D3">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Handle Bar -->
+        <View
+            android:layout_width="40dp"
+            android:layout_height="4dp"
+            android:layout_gravity="center_horizontal"
+            android:background="#DDD"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Judul -->
+        <TextView
+            android:id="@+id/tvJudulBottomSheet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="📷 Absen Sekarang"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="#1a1a1a" />
+
+        <TextView
+            android:id="@+id/tvSubjudulBottomSheet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Isi kehadiran Anda hari ini"
+            android:textSize="12sp"
+            android:textColor="#666"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="16dp" />
+
+        <!-- ========================================== -->
+        <!-- SECTION STATUS (disembunyikan di mode reupload) -->
+        <!-- ========================================== -->
+        <LinearLayout
+            android:id="@+id/labelStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Status Kehadiran *"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:textColor="#1a1a1a"
+                android:layout_marginBottom="8dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layoutStatusCards"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="3"
+            android:layout_marginBottom="16dp">
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardStatusHadir"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginEnd="4dp"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="0dp"
+                app:strokeWidth="2dp"
+                app:strokeColor="#4CAF50"
+                app:cardBackgroundColor="#E8F5E9">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:padding="10dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="✅"
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Hadir"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        android:textColor="#2E7D32"
+                        android:layout_marginTop="2dp" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardStatusIzin"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginHorizontal="4dp"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="0dp"
+                app:strokeWidth="1dp"
+                app:strokeColor="#DDD"
+                app:cardBackgroundColor="#FFF">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:padding="10dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="📝"
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Izin"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        android:textColor="#666"
+                        android:layout_marginTop="2dp" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardStatusSakit"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="4dp"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="0dp"
+                app:strokeWidth="1dp"
+                app:strokeColor="#DDD"
+                app:cardBackgroundColor="#FFF">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:padding="10dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="🤒"
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Sakit"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        android:textColor="#666"
+                        android:layout_marginTop="2dp" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
+
+        <!-- ========================================== -->
+        <!-- SELFIE -->
+        <!-- ========================================== -->
+        <TextView
+            android:id="@+id/labelSelfie"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Selfie *"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:textColor="#1a1a1a"
+            android:layout_marginBottom="8dp" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:layout_marginBottom="8dp">
+
+            <ImageView
+                android:id="@+id/ivPreviewSelfie"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:background="#F5F5F5"
+                android:src="@mipmap/ic_launcher" />
+
+            <LinearLayout
+                android:id="@+id/layoutEmptySelfie"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:background="#F5F5F5">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="📷"
+                    android:textSize="40sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Belum ada selfie"
+                    android:textSize="12sp"
+                    android:textColor="#999"
+                    android:layout_marginTop="4dp" />
+            </LinearLayout>
+        </FrameLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnAmbilSelfie"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="📷 Ambil / Ganti Selfie"
+            android:textSize="13sp"
+            android:backgroundTint="#2196F3"
+            app:cornerRadius="8dp"
+            android:layout_marginBottom="16dp" />
+
+        <!-- ========================================== -->
+        <!-- FORM IZIN/SAKIT -->
+        <!-- ========================================== -->
+        <LinearLayout
+            android:id="@+id/layoutIzinSakit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Keterangan *"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:textColor="#1a1a1a"
+                android:layout_marginBottom="8dp" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_marginBottom="12dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etKeterangan"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Alasan izin/sakit..."
+                    android:inputType="textMultiLine"
+                    android:minLines="2"
+                    android:maxLines="4" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Foto Surat *"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:textColor="#1a1a1a"
+                android:layout_marginBottom="8dp" />
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_marginBottom="8dp">
+
+                <ImageView
+                    android:id="@+id/ivPreviewSurat"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:background="#F5F5F5" />
+
+                <LinearLayout
+                    android:id="@+id/layoutEmptySurat"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:background="#F5F5F5">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="📎"
+                        android:textSize="40sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Belum ada surat"
+                        android:textSize="12sp"
+                        android:textColor="#999"
+                        android:layout_marginTop="4dp" />
+                </LinearLayout>
+            </FrameLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnAmbilSurat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="📎 Upload Surat"
+                android:textSize="13sp"
+                android:backgroundTint="#FF9800"
+                app:cornerRadius="8dp"
+                android:layout_marginBottom="16dp" />
+        </LinearLayout>
+
+        <!-- ========================================== -->
+        <!-- TOMBOL SUBMIT -->
+        <!-- ========================================== -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnKirimAbsen"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="🚀 Kirim Absen"
+            android:textSize="15sp"
+            android:paddingVertical="12dp"
+            android:backgroundTint="#4CAF50"
+            app:cornerRadius="10dp" />
+
+        <ProgressBar
+            android:id="@+id/progressBarBottomSheet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="8dp"
+            android:visibility="gone" />
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

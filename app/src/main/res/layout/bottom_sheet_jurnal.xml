@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:maxHeight="600dp"
+    android:fillViewport="true"
+    android:background="#98B4D3">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Handle Bar -->
+        <View
+            android:layout_width="40dp"
+            android:layout_height="4dp"
+            android:layout_gravity="center_horizontal"
+            android:background="#DDD"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Judul -->
+        <TextView
+            android:id="@+id/tvJudulJurnal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="📝 Tambah Jurnal"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="#1a1a1a" />
+
+        <TextView
+            android:id="@+id/tvSubjudulJurnal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Catat kegiatan PKL hari ini"
+            android:textSize="12sp"
+            android:textColor="#666"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="16dp" />
+
+        <!-- ========================================== -->
+        <!-- TANGGAL -->
+        <!-- ========================================== -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tanggal *"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:textColor="#1a1a1a"
+            android:layout_marginBottom="8dp" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_marginBottom="16dp"
+            app:endIconMode="custom"
+            app:endIconDrawable="@android:drawable/ic_menu_my_calendar">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etTanggal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Pilih tanggal"
+                android:focusable="false"
+                android:cursorVisible="false"
+                android:inputType="none" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- ========================================== -->
+        <!-- KEGIATAN -->
+        <!-- ========================================== -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Kegiatan *"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:textColor="#1a1a1a"
+            android:layout_marginBottom="8dp" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_marginBottom="16dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etKegiatan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Tulis kegiatan hari ini..."
+                android:inputType="textMultiLine"
+                android:minLines="4"
+                android:maxLines="8"
+                android:gravity="top" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- ========================================== -->
+        <!-- FOTO (OPSIONAL) -->
+        <!-- ========================================== -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Foto Kegiatan (opsional)"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:textColor="#1a1a1a"
+            android:layout_marginBottom="8dp" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:layout_marginBottom="8dp">
+
+            <ImageView
+                android:id="@+id/ivPreviewFoto"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:background="#F5F5F5" />
+
+            <LinearLayout
+                android:id="@+id/layoutEmptyFoto"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:background="#F5F5F5">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="📷"
+                    android:textSize="40sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Belum ada foto"
+                    android:textSize="12sp"
+                    android:textColor="#999"
+                    android:layout_marginTop="4dp" />
+            </LinearLayout>
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="16dp">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnAmbilFoto"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="📷 Ambil / Ganti Foto"
+                android:textSize="12sp"
+                android:backgroundTint="#2196F3"
+                app:cornerRadius="8dp"
+                android:layout_marginEnd="4dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnHapusFoto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🗑️"
+                android:textSize="14sp"
+                android:backgroundTint="#F44336"
+                app:cornerRadius="8dp"
+                android:visibility="gone" />
+        </LinearLayout>
+
+        <!-- ========================================== -->
+        <!-- TOMBOL SUBMIT -->
+        <!-- ========================================== -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSimpan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="🚀 Simpan Jurnal"
+            android:textSize="15sp"
+            android:paddingVertical="12dp"
+            android:backgroundTint="#4CAF50"
+            app:cornerRadius="10dp" />
+
+        <ProgressBar
+            android:id="@+id/progressBarBottomSheet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="8dp"
+            android:visibility="gone" />
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>
